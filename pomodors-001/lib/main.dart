@@ -34,10 +34,10 @@ class _MainPageState extends State<MainPage> {
   int _pageIndex = 1;
   int wantTimer = 20;
 
-  void onChangeSetting(value) {
-    if (value.legth() < 3) {
+  void onChangeSetting(String value) {
+    if (value.length > 3) {
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("$value")));
+          .showSnackBar(SnackBar(content: Text(value)));
     }
   }
 

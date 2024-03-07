@@ -3,7 +3,7 @@ import 'package:settings_ui/settings_ui.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key, required this.onChange});
-  final Function() onChange;
+  final Function(String) onChange;
 
   @override
   State<SettingPage> createState() => _SettingPageState();
