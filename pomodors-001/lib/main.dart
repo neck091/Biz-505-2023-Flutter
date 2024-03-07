@@ -32,6 +32,14 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _pageIndex = 1;
+  int wantTimer = 20;
+
+  void onChangeSetting(value) {
+    if (value.legth() < 3) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("$value")));
+    }
+  }
 
   //타입의 변수 선언
   //flutter dart 에서 변수를 선언할 때 final, const
@@ -54,7 +62,11 @@ class _MainPageState extends State<MainPage> {
           controller: _pageController,
           scrollDirection: Axis.horizontal,
           onPageChanged: (value) => setState(() => _pageIndex = value),
-          children: const [HomePage(), DashPage(), SettingPage()],
+          children: [
+            const HomePage(),
+            const DashPage(),
+            SettingPage(onChange: onChangeSetting),
+          ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _pageIndex,
